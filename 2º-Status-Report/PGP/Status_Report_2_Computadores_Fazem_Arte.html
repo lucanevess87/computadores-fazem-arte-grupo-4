@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Report 02 - Computadores Fazem Arte</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #1a1a1a;
+            color: #2d1b0e;
+            line-height: 1.6;
+        }
+
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 80px;
+            position: relative;
+            background: white;
+            page-break-after: always;
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            font-size: 0.9em;
+            color: #9c4221;
+            font-weight: 600;
+        }
+
+        /* Slide 1 - Abertura */
+        .slide-1 {
+            background: linear-gradient(135deg, #c53030 0%, #ed8936 50%, #ecc94b 100%);
+            color: white;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide-1 h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 4.5em;
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-1 .subtitle {
+            font-size: 2em;
+            font-weight: 300;
+            margin: 30px 0;
+            padding: 30px;
+            border: 3px solid white;
+            border-radius: 15px;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        .slide-1 .info {
+            font-size: 1.3em;
+            font-style: italic;
+            opacity: 0.95;
+            margin-top: 30px;
+        }
+
+        /* Títulos gerais */
+        h1 {
+            font-family: 'Bebas Neue', cursive;
+            color: #c53030;
+            font-size: 3.5em;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            font-family: 'Bebas Neue', cursive;
+            color: #ed8936;
+            font-size: 2.2em;
+            margin: 30px 0 20px 0;
+            letter-spacing: 1.5px;
+        }
+
+        h3 {
+            color: #7c2d12;
+            font-size: 1.5em;
+            font-weight: 700;
+            margin: 25px 0 15px 0;
+        }
+
+        h4 {
+            color: #7c2d12;
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        p, li {
+            font-size: 1.1em;
+            color: #5a3825;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #fed7d7 0%, #feebc8 100%);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 6px solid #c53030;
+            margin: 25px 0;
+        }
+
+        .highlight strong {
+            color: #7c2d12;
+        }
+
+        .tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #ed8936 0%, #f6ad55 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .three-col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .box {
+            background: white;
+            border: 2px solid #fed7d7;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(197, 48, 48, 0.1);
+        }
+
+        .box h3 {
+            margin-top: 0;
+            color: #c53030;
+        }
+
+        .box h4 {
+            margin-top: 0;
+            color: #c53030;
+        }
+
+        ul {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 12px 0;
+        }
+
+        strong {
+            color: #7c2d12;
+            font-weight: 700;
+        }
+
+        .timeline {
+            background: #f8f8f8;
+            border: 2px solid #fed7d7;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            align-items: flex-start;
+        }
+
+        .timeline-date {
+            background: linear-gradient(135deg, #c53030 0%, #ed8936 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            white-space: nowrap;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ed8936;
+        }
+
+        .metric-box {
+            background: linear-gradient(135deg, #c53030 0%, #ed8936 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .metric-box .number {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3.5em;
+            margin-bottom: 10px;
+        }
+
+        .metric-box .label {
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(197, 48, 48, 0.1);
+        }
+
+        th {
+            background: linear-gradient(135deg, #c53030 0%, #ed8936 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 700;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #fed7d7;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background: #fff5f5;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 700;
+        }
+
+        .status-done {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+
+        .status-progress {
+            background: #fef5e7;
+            color: #975a16;
+        }
+
+        .status-pending {
+            background: #e2e8f0;
+            color: #2d3748;
+        }
+
+        .four-col {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        @media print {
+            .slide {
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SLIDE 1: ABERTURA -->
+    <div class="slide slide-1">
+        <h1>STATUS REPORT 02</h1>
+        <div class="subtitle">
+            COMPUTADORES FAZEM ARTE
+        </div>
+        <div class="info">
+            Plataforma de Estruturação de Carreiras Musicais<br>
+            UFPE × SECULT/FCCR | Recife, PE<br><br>
+            02 de Dezembro de 2025
+        </div>
+    </div>
+
+    <!-- SLIDE 2: CONTEXTO DO PROJETO -->
+    <div class="slide">
+        <span class="tag">Contexto</span>
+        <h1>CONTEXTO DO PROJETO</h1>
+
+        <h2>Instituição e Parceria</h2>
+        <div class="two-col">
+            <div class="box">
+                <h3>🎓 UFPE - Universidade Federal de Pernambuco</h3>
+                <ul style="font-size: 0.9em;">
+                    <li><strong>Centro:</strong> Centro de Informática (CIn)</li>
+                    <li><strong>Disciplina:</strong> Gestão de Projetos e Sistemas</li>
+                    <li><strong>Orientação:</strong> Prof. Alexandre Vasconcelos</li>
+                    <li><strong>Equipe:</strong> 7 pesquisadores multidisciplinares</li>
+                    <li><strong>Abordagem:</strong> Projeto acadêmico aplicado</li>
+                </ul>
+            </div>
+
+            <div class="box">
+                <h3>🏛️ SECULT/FCCR - Prefeitura do Recife</h3>
+                <ul style="font-size: 0.9em;">
+                    <li><strong>Secretaria:</strong> Secretaria de Cultura (SECULT)</li>
+                    <li><strong>Fundação:</strong> Fund. de Cultura Cidade do Recife (FCCR)</li>
+                    <li><strong>Cliente:</strong> Pedro Neivas, Rafael de Paula</li>
+                    <li><strong>Contexto:</strong> Recife - Cidade Criativa da Música (UNESCO)</li>
+                    <li><strong>Foco:</strong> Políticas públicas baseadas em dados</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Realidade Atual da Cena Musical de Recife</h2>
+        
+        <div class="highlight">
+            <p><strong>📍 Recife é Cidade Criativa da Música pela UNESCO</strong>, com tradição cultural consolidada (manguebeat, frevo, maracatu), mas enfrenta desafios estruturais significativos para novos artistas.</p>
+        </div>
+
+        <div class="three-col">
+            <div class="box" style="background: #fff5f5;">
+                <h4>⚠️ Desafios Identificados</h4>
+                <ul style="font-size: 0.85em;">
+                    <li>Ausência de programas estruturados de carreira</li>
+                    <li>Oportunidades concentradas em festivais sazonais</li>
+                    <li>Baixa representatividade de artistas de ZEIS/CIS</li>
+                    <li>Desigualdade territorial no acesso a equipamentos culturais</li>
+                </ul>
+            </div>
+
+            <div class="box" style="background: #fffaf0;">
+                <h4>📊 Dados e Informações</h4>
+                <ul style="font-size: 0.85em;">
+                    <li>Inexistência de base de dados unificada sobre artistas</li>
+                    <li>Política cultural de "balcão" (decisões caso a caso)</li>
+                    <li>Dificuldade em mensurar impacto das ações culturais</li>
+                    <li>Investimentos sem ROI mensurável</li>
+                </ul>
+            </div>
+
+            <div class="box" style="background: #f0fdf4;">
+                <h4>💡 Oportunidade Estratégica</h4>
+                <ul style="font-size: 0.85em;">
+                    <li>Integração com Conecta Recife (plataforma municipal)</li>
+                    <li>Apoio da gestão municipal para inovação</li>
+                    <li>Foco em ZEIS/CIS alinhado com políticas de equidade</li>
+                    <li>Demanda clara por estruturação de carreira</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide-number">02</div>
+    </div>
+
+    <!-- SLIDE 3: DESCRIÇÃO DETALHADA DO PROBLEMA -->
+    <div class="slide">
+        <span class="tag">Problema</span>
+        <h1>DESCRIÇÃO DETALHADA DO PROBLEMA</h1>
+
+        <div class="highlight">
+            <p style="font-size: 1.2em; text-align: center;"><strong>🎯 Problema Central:</strong> Ausência de suporte estruturado para carreira de novos artistas musicais no Recife, gerando falta de dados confiáveis para planejamento cultural efetivo pela SECULT e dificuldade de visualização de trajetórias profissionais claras.</p>
+        </div>
+
+        <h2>Análise Sistemática via Matriz GUT (Gravidade × Urgência × Tendência)</h2>
+
+        <div class="three-col">
+            <div class="box" style="border: 3px solid #c53030;">
+                <h3>🔴 PROBLEMA 1: Falta de Dados Confiáveis</h3>
+                <p><strong>Prioridade GUT: 75 (CRÍTICA)</strong></p>
+                <p style="font-size: 0.9em;"><strong>Domínio:</strong> Padronização</p>
+                <p style="font-size: 0.9em;"><strong>Natureza:</strong> Tecnologia</p>
+                <ul style="font-size: 0.85em;">
+                    <li><strong>Impacto:</strong> Impossibilidade de planejamento cultural baseado em evidências</li>
+                    <li><strong>Consequência:</strong> Política de balcão, investimentos errados, ausência de framework de priorização</li>
+                    <li><strong>Causas Raiz:</strong> Inexistência de banco de dados unificado, baixa captação de informações, falta de cultura de dados</li>
+                </ul>
+            </div>
+
+            <div class="box" style="border: 3px solid #ed8936;">
+                <h3>🟠 PROBLEMA 2: Ausência de Programas Estruturados</h3>
+                <p><strong>Prioridade GUT: 50 (ALTA)</strong></p>
+                <p style="font-size: 0.9em;"><strong>Domínio:</strong> Qualidade</p>
+                <p style="font-size: 0.9em;"><strong>Natureza:</strong> Método</p>
+                <ul style="font-size: 0.85em;">
+                    <li><strong>Impacto:</strong> Artistas sem clareza de futuro profissional</li>
+                    <li><strong>Consequência:</strong> Foco em fomento recorrente, sem editais para desenvolvimento progressivo</li>
+                    <li><strong>Causas Raiz:</strong> Ausência de plataformas estruturadas, mudanças frequentes de gestão, baixa participação em ações digitais</li>
+                </ul>
+            </div>
+
+            <div class="box" style="border: 3px solid #f6ad55;">
+                <h3>🟡 PROBLEMA 3: Acesso Fragmentado e Desigual a Oportunidades</h3>
+                <p><strong>Prioridade GUT: 48 (MÉDIA-ALTA)</strong></p>
+                <p style="font-size: 0.9em;"><strong>Domínio:</strong> Comunicação + Recursos</p>
+                <p style="font-size: 0.9em;"><strong>Natureza:</strong> Gestão + Processos</p>
+                <ul style="font-size: 0.85em;">
+                    <li><strong>Impacto:</strong> Desigualdade territorial + Informações dispersas + Players inacessíveis</li>
+                    <li><strong>Consequência:</strong> Artistas ZEIS/CIS sem acesso a oportunidades, editais/cursos fragmentados, produtores/mentores inacessíveis, sazonalidade extrema</li>
+                    <li><strong>Causas Raiz:</strong> Infraestrutura concentrada, divulgação fragmentada, falta de rede de contatos, oportunidades em festivais pontuais</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Análise de Causas (Diagrama de Ishikawa - 6M)</h2>
+
+        <div class="two-col">
+            <div class="box">
+                <h4>🔧 Causas Estruturais e Processuais</h4>
+                <ul style="font-size: 0.85em;">
+                    <li><strong>Gestão:</strong> Mudanças frequentes, política de balcão, ausência de práticas de estado</li>
+                    <li><strong>Processos:</strong> Editais generalizados sem segmentação territorial, divulgação fragmentada em múltiplos canais desconectados</li>
+                    <li><strong>Tecnologia:</strong> Inexistência de banco unificado, falta de hub centralizado de oportunidades</li>
+                </ul>
+            </div>
+
+            <div class="box">
+                <h4>👥 Causas Humanas e Ambientais</h4>
+                <ul style="font-size: 0.85em;">
+                    <li><strong>Pessoas:</strong> Baixa participação civil, equipe reduzida, artistas sem rede de contatos com mercado</li>
+                    <li><strong>Ambiente:</strong> Infraestrutura concentrada em áreas centrais, poucos espaços na periferia, acesso limitado a produtores/investidores</li>
+                    <li><strong>Externos:</strong> Sazonalidade extrema (festivais pontuais), desvalorização da cultura como investimento</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="highlight" style="margin-top: 30px;">
+            <p><strong>📊 Análise Quantitativa:</strong> Mapeamos sistematicamente <strong>122 problemas potenciais</strong> distribuídos em 6 dimensões (Qualidade: 23, Prazo: 21, Comunicação: 23, Legalidade: 15, Recurso: 14, Padronização: 26) nos 3 macroprocessos.</p>
+        </div>
+
+        <div class="slide-number">03</div>
+    </div>
+
+    <!-- SLIDE 4: PROCESSO ATUAL VS PROCESSO MELHORADO -->
+    <div class="slide">
+        <span class="tag">Processos</span>
+        <h1>PROCESSO ATUAL VS PROCESSO MELHORADO</h1>
+
+        <h2>🔴 Situação Atual (AS-IS) - Ausência de Processo Estruturado</h2>
+
+        <div style="background: #fff5f5; padding: 30px; border-radius: 12px; border-left: 6px solid #c53030; margin: 20px 0;">
+            <p style="font-size: 1.1em;"><strong>⚠️ IMPORTANTE:</strong> Como este é um projeto <strong>greenfield</strong> (criação de processo novo), NÃO EXISTE processo atual formal. A situação AS-IS é caracterizada pela <strong>ausência completa de estruturação</strong>.</p>
+        </div>
+
+        <div class="two-col">
+            <div class="box" style="background: #fff5f5; border: 3px solid #e53e3e;">
+                <h3>❌ Cenário Atual (Sem Plataforma)</h3>
+                <ul style="font-size: 0.9em;">
+                    <li><strong>Cadastro:</strong> Inexistente ou disperso em múltiplas planilhas desconectadas</li>
+                    <li><strong>Desenvolvimento:</strong> Artistas buscam informações por conta própria, sem orientação estruturada</li>
+                    <li><strong>Oportunidades:</strong> Divulgadas de forma fragmentada (redes sociais, email, boca a boca)</li>
+                    <li><strong>Dados SECULT:</strong> Coleta manual, incompleta e não sistematizada</li>
+                    <li><strong>Profissionalização:</strong> Sem apoio para formalização (MEI) ou portfólio</li>
+                    <li><strong>Conexões:</strong> Networking informal, dependente de contatos pessoais</li>
+                    <li><strong>Equidade:</strong> Sem priorização territorial para ZEIS/CIS</li>
+                </ul>
+                <p style="margin-top: 20px; font-size: 0.85em; color: #c53030; font-weight: 700;">Resultado: Artistas desmotivados, SECULT sem dados, desigualdade mantida</p>
+            </div>
+
+            <div class="box" style="background: #f0fdf4; border: 3px solid #38a169;">
+                <h3>✅ Processo Melhorado (TO-BE) - Com Plataforma</h3>
+                <ul style="font-size: 0.9em;">
+                    <li><strong>Cadastro:</strong> Base unificada com dados demográficos, validação territorial ZEIS/CIS</li>
+                    <li><strong>Desenvolvimento:</strong> Programas estruturados de 8-12 semanas (Incubação) com mentoria</li>
+                    <li><strong>Oportunidades:</strong> Hub centralizado com notificações automáticas e histórico</li>
+                    <li><strong>Dados SECULT:</strong> Painel analítico em tempo real com filtros territoriais</li>
+                    <li><strong>Profissionalização:</strong> Módulos guiados para MEI, portfólio digital automático</li>
+                    <li><strong>Conexões:</strong> Marketplace geolocalizado artista-produtor-investidor</li>
+                    <li><strong>Equidade:</strong> Algoritmo de peso 2x para ZEIS/CIS em seleções</li>
+                </ul>
+                <p style="margin-top: 20px; font-size: 0.85em; color: #276749; font-weight: 700;">Resultado: Carreiras estruturadas, decisões baseadas em dados, equidade territorial</p>
+            </div>
+        </div>
+
+        <h2>Fluxo Comparativo dos 3 Macroprocessos</h2>
+
+        <table style="font-size: 0.85em;">
+            <thead>
+                <tr>
+                    <th>Macroprocesso</th>
+                    <th>AS-IS (Situação Atual)</th>
+                    <th>TO-BE (Com Plataforma)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1. ENTRADA</strong></td>
+                    <td>Artista não sabe por onde começar, informações espalhadas</td>
+                    <td>Cadastro único integrado com Conecta Recife + Onboarding guiado</td>
+                </tr>
+                <tr>
+                    <td><strong>2. INCUBAÇÃO</strong></td>
+                    <td>Workshops pontuais, sem continuidade ou acompanhamento</td>
+                    <td>Programas estruturados com trilhas, entregas e certificação</td>
+                </tr>
+                <tr>
+                    <td><strong>3. VITRINE</strong></td>
+                    <td>Cada artista divulga individualmente, sem visibilidade</td>
+                    <td>Marketplace unificado + Sistema Capibas (gamificação)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="highlight" style="margin-top: 30px;">
+            <p><strong>🎯 Diferencial Estratégico:</strong> A plataforma não apenas digitaliza processos, mas <strong>cria estrutura onde não existe</strong>, transformando a cena musical de fragmentada para sistematizada, com foco em equidade territorial e geração de inteligência para políticas públicas.</p>
+        </div>
+
+        <div class="slide-number">04</div>
+    </div>
+
+    <!-- SLIDE 5: SOLUÇÃO PROPOSTA E VALOR -->
+    <div class="slide">
+        <span class="tag">Solução</span>
+        <h1>SOLUÇÃO PROPOSTA E SEU VALOR</h1>
+
+        <h2>Arquitetura da Solução - 3 Macroprocessos Integrados</h2>
+
+        <div style="display: flex; justify-content: space-around; align-items: center; margin: 40px 0;">
+            <div style="text-align: center;">
+                <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #c53030 0%, #dd6b20 100%); border-radius: 15px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; margin: 0 auto 15px;">
+                    <div style="font-family: 'Bebas Neue', cursive; font-size: 2.5em;">1</div>
+                    <div style="font-size: 1.3em; font-weight: 700;">ENTRADA</div>
+                </div>
+                <p style="font-size: 0.9em; margin: 0;">Cadastro Único</p>
+            </div>
+
+            <span style="font-size: 3em; color: #ed8936;">→</span>
+
+            <div style="text-align: center;">
+                <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #dd6b20 0%, #f6ad55 100%); border-radius: 15px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; margin: 0 auto 15px;">
+                    <div style="font-family: 'Bebas Neue', cursive; font-size: 2.5em;">2</div>
+                    <div style="font-size: 1.3em; font-weight: 700;">INCUBAÇÃO</div>
+                </div>
+                <p style="font-size: 0.9em; margin: 0;">Desenvolvimento</p>
+            </div>
+
+            <span style="font-size: 3em; color: #ed8936;">→</span>
+
+            <div style="text-align: center;">
+                <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #ed8936 0%, #ecc94b 100%); border-radius: 15px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; margin: 0 auto 15px;">
+                    <div style="font-family: 'Bebas Neue', cursive; font-size: 2.5em;">3</div>
+                    <div style="font-size: 1.3em; font-weight: 700;">VITRINE</div>
+                </div>
+                <p style="font-size: 0.9em; margin: 0;">Marketplace</p>
+            </div>
+        </div>
+
+        <h2>17 Soluções Detalhadas Propostas</h2>
+
+        <div class="three-col">
+            <div class="box" style="background: linear-gradient(135deg, #fff5f5 0%, #fffaf0 100%); border: 3px solid #c53030;">
+                <h3>📊 Problema 1: Dados</h3>
+                <p style="font-size: 0.85em;"><strong>5 Soluções Focadas em Dados</strong></p>
+                <ul style="font-size: 0.8em;">
+                    <li>Sistema de coleta automatizada em todos pontos de contato</li>
+                    <li>Painel analítico SECULT com filtros territoriais e segmentação</li>
+                    <li>Protocolo de captura pós-eventos culturais</li>
+                    <li>Capacitação equipe SECULT em análise de dados</li>
+                    <li>Parcerias com UFPE/UFRPE para análise longitudinal</li>
+                </ul>
+            </div>
+
+            <div class="box" style="background: linear-gradient(135deg, #fff5f5 0%, #fffaf0 100%); border: 3px solid #ed8936;">
+                <h3>🎓 Problema 2: Desenvolvimento</h3>
+                <p style="font-size: 0.85em;"><strong>6 Soluções de Estruturação</strong></p>
+                <ul style="font-size: 0.8em;">
+                    <li>Programas em ciclos estruturados (8-12 semanas, turmas fechadas)</li>
+                    <li>Salas virtuais modelo classroom com currículo modular</li>
+                    <li>Mentoria com artistas consolidados locais</li>
+                    <li>Trilhas customizáveis (Identidade, Produção, Gestão, Marketing, Networking)</li>
+                    <li>Certificação digital ao concluir programas</li>
+                    <li>Apoio para criação de MEI + Comunidade de prática</li>
+                </ul>
+            </div>
+
+            <div class="box" style="background: linear-gradient(135deg, #fff5f5 0%, #fffaf0 100%); border: 3px solid #f6ad55;">
+                <h3>⚖️ Problema 3: Acesso e Equidade</h3>
+                <p style="font-size: 0.85em;"><strong>6 Soluções de Acesso e Inclusão</strong></p>
+                <ul style="font-size: 0.8em;">
+                    <li>Pontuação territorial automatizada (peso 2x ZEIS/CIS em seleções)</li>
+                    <li>Rede de facilitadores comunitários em COMPAZ e espaços culturais</li>
+                    <li>Critérios de equidade territorial obrigatórios em processos seletivos</li>
+                    <li>Mapeamento georeferenciado de talentos por região (mapa interativo)</li>
+                    <li>Sistema de vagas reservadas com cotas progressivas (40%→50%→60%)</li>
+                    <li>Programa de embaixadores culturais por comunidade ZEIS/CIS</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="highlight" style="margin-top: 30px;">
+            <p style="text-align: center; font-size: 1.1em;"><strong>🎯 Impacto Estratégico:</strong> Transformar Recife de cidade com <strong>cena musical rica mas desestruturada</strong> para referência nacional em <strong>gestão cultural baseada em dados e equidade territorial</strong>, fortalecendo a posição de Cidade Criativa da Música UNESCO.</p>
+        </div>
+
+        <div class="slide-number">05</div>
+    </div>
+
+    <!-- SLIDE 6: METODOLOGIA DE TRABALHO -->
+    <div class="slide">
+        <span class="tag">Metodologia</span>
+        <h1>REVISÃO DA METODOLOGIA DE TRABALHO</h1>
+
+        <h2>Gestão de Cronograma e Tempo</h2>
+
+        <div class="two-col">
+            <div class="box">
+                <h3>📊 Métodos e Técnicas</h3>
+                <ul style="font-size: 0.9em;">
+                    <li><strong>CPM (Critical Path Method):</strong> Identificação de atividades críticas e duração mínima</li>
+                    <li><strong>Estimativa Análoga:</strong> Baseada em projetos similares anteriores</li>
+                    <li><strong>Estimativa Paramétrica:</strong> Produtividade da equipe medida</li>
+                    <li><strong>PERT:</strong> Program Evaluation and Review Technique para atividades de alta incerteza</li>
+                </ul>
+            </div>
+
+            <div class="box">
+                <h3>🛠️ Ferramentas de Controle</h3>
+                <ul style="font-size: 0.9em;">
+                    <li><strong>Notion:</strong> Gantt visual e gestão de tarefas com quadro Kanban</li>
+                    <li><strong>Google Sheets:</strong> Cronograma detalhado com dependências</li>
+                    <li><strong>Miro:</strong> Mapeamento visual de dependências críticas</li>
+                    <li><strong>Métricas:</strong> SPI (Schedule Performance Index) e SV (Schedule Variance) semanais</li>
+                    <li><strong>Baseline:</strong> 1.1 estabelecido em 24/10/2025</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Análise de Problemas e Processos</h2>
+
+        <div class="four-col" style="font-size: 0.85em;">
+            <div class="box">
+                <h4>📋 Matriz GUT</h4>
+                <p>Gravidade × Urgência × Tendência</p>
+                <p>Escala 1-5, pontuação 1-125</p>
+            </div>
+            <div class="box">
+                <h4>🐟 Ishikawa (6M)</h4>
+                <p>Gestão, Processos, Pessoas, Tecnologia, Ambiente, Externos</p>
+            </div>
+            <div class="box">
+                <h4>📊 MoSCoW</h4>
+                <p>Must, Should, Could, Won't Have - Priorização de features</p>
+            </div>
+            <div class="box">
+                <h4>🎯 Indicadores</h4>
+                <p>Métricas mensuráveis por stakeholder (SECULT, Artistas, Ecossistema)</p>
+            </div>
+        </div>
+
+        <p style="font-size: 0.95em; margin: 20px 0;"><strong>Priorização:</strong> Matriz GUT para classificação de problemas em escala de 1 a 5, gerando pontuação de 1 a 125. <strong>Análise de Causas:</strong> Diagrama de Ishikawa considerando 6M (Gestão, Processos, Pessoas, Tecnologia, Ambiente, Fatores Externos). <strong>Indicadores:</strong> Métricas definidas por problema e solução, com indicadores mensuráveis por stakeholder. <strong>Priorização de Funcionalidades:</strong> Matriz MoSCoW aplicada em todas as features da solução proposta.</p>
+
+        <h2>Interação da Equipe Interna</h2>
+
+        <table style="font-size: 0.9em;">
+            <thead>
+                <tr>
+                    <th style="width: 30%;">Tipo de Reunião</th>
+                    <th>Frequência</th>
+                    <th>Duração</th>
+                    <th>Objetivo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Reuniões Semanais</strong></td>
+                    <td>Domingos, 19h</td>
+                    <td>1h</td>
+                    <td>Planejamento da semana, alinhamento de prioridades, resolução de bloqueios</td>
+                </tr>
+                <tr>
+                    <td><strong>Dailies (Reta Final)</strong></td>
+                    <td>Diariamente via WhatsApp</td>
+                    <td>15 min</td>
+                    <td>Atualizações rápidas, implementado a partir de 02/12</td>
+                </tr>
+                <tr>
+                    <td><strong>Atualização de Progresso</strong></td>
+                    <td>Sextas-feiras, 17h</td>
+                    <td>-</td>
+                    <td>Coleta sistemática de dados de cada membro para consolidação</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Interação com Cliente (SECULT/FCCR)</h2>
+
+        <div class="two-col">
+            <div class="box">
+                <h3>📅 Reuniões Quinzenais</h3>
+                <ul style="font-size: 0.9em;">
+                    <li><strong>Duração:</strong> 2 horas cada</li>
+                    <li><strong>Meio:</strong> Google Meet</li>
+                    <li><strong>Pauta:</strong> Validação de progresso, decisões estratégicas, aprovação de entregas críticas</li>
+                    <li><strong>Exemplos:</strong> Validação 1 (07/10) - problema e contexto; Validação 2 (24/10) - personas e protótipos</li>
+                </ul>
+            </div>
+
+            <div class="box">
+                <h3>📧 Comunicação Formal</h3>
+                <ul style="font-size: 0.9em;">
+                    <li><strong>Email Semanal:</strong> Sextas-feiras, 18h</li>
+                    <li><strong>Conteúdo:</strong> Relatório executivo de progresso, próximos passos, pontos de atenção</li>
+                    <li><strong>Validações Estruturadas:</strong> Reunião de Validação 1 (07/10) e Validação 2 (24/10)</li>
+                    <li><strong>Extraordinárias:</strong> Sob demanda (24-48h)</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Ferramentas de Trabalho Consolidadas</h2>
+
+        <table style="font-size: 0.85em;">
+            <thead>
+                <tr>
+                    <th>Categoria</th>
+                    <th>Ferramentas</th>
+                    <th>Finalidade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Gestão</strong></td>
+                    <td>Notion</td>
+                    <td>Centralização de documentos, cronograma Gantt, quadro Kanban, base de conhecimento</td>
+                </tr>
+                <tr>
+                    <td><strong>Design</strong></td>
+                    <td>Miro, Lovable, Figma</td>
+                    <td>User flows, jornadas, brainstorming, prototipação alta fidelidade, design system</td>
+                </tr>
+                <tr>
+                    <td><strong>Comunicação</strong></td>
+                    <td>Google Meet, WhatsApp, Email</td>
+                    <td>Reuniões síncronas, comunicação rápida/dailies, comunicação formal</td>
+                </tr>
+                <tr>
+                    <td><strong>Documentação</strong></td>
+                    <td>Google Drive, Sheets, Docs</td>
+                    <td>Armazenamento centralizado, cronogramas/métricas, documentação colaborativa</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="slide-number">06</div>
+    </div>
+
+    <!-- SLIDE 7: STATUS PLANEJADO X REALIZADO -->
+    <div class="slide">
+        <span class="tag">Status</span>
+        <h1>STATUS: PLANEJADO X REALIZADO</h1>
+
+        <div class="highlight">
+            <p style="font-size: 1.2em; text-align: center;"><strong>✅ DESEMPENHO ACIMA DAS EXPECTATIVAS:</strong> 93% dos artefatos concluídos (planejado: 90%), representando variação positiva de <strong>+3%</strong>. Todos os marcos obrigatórios cumpridos <strong>sem atrasos</strong>.</p>
+        </div>
+
+        <h2>Comparativo Detalhado de Marcos</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Marco/Fase</th>
+                    <th>Data Planejada</th>
+                    <th>Data Realizada</th>
+                    <th>Status</th>
+                    <th>Desvio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Kickoff Oficial</strong></td>
+                    <td>07/10/2025</td>
+                    <td>07/10/2025</td>
+                    <td><span class="status-badge status-done">✓ Concluído</span></td>
+                    <td>0 dias</td>
+                </tr>
+                <tr>
+                    <td><strong>Validação 1</strong></td>
+                    <td>07/10/2025</td>
+                    <td>07/10/2025</td>
+                    <td><span class="status-badge status-done">✓ Concluído</span></td>
+                    <td>0 dias</td>
+                </tr>
+                <tr>
+                    <td><strong>Validação 2</strong></td>
+                    <td>24/10/2025</td>
+                    <td>24/10/2025</td>
+                    <td><span class="status-badge status-done">✓ Concluído</span></td>
+                    <td>0 dias</td>
+                </tr>
+                <tr>
+                    <td><strong>Status Report 1</strong></td>
+                    <td>04/11/2025</td>
+                    <td>04/11/2025</td>
+                    <td><span class="status-badge status-done">✓ Concluído</span></td>
+                    <td>0 dias</td>
+                </tr>
+                <tr>
+                    <td><strong>Análise de Processos</strong></td>
+                    <td>20/11/2025</td>
+                    <td>20/11/2025</td>
+                    <td><span class="status-badge status-done">✓ Concluído</span></td>
+                    <td>0 dias</td>
+                </tr>
+                <tr style="background: #fef5e7;">
+                    <td><strong>Protótipos Alta Fidelidade</strong></td>
+                    <td>05/12/2025</td>
+                    <td>Em andamento (80%)</td>
+                    <td><span class="status-badge status-progress">⚠ Parcial</span></td>
+                    <td>No prazo</td>
+                </tr>
+
+                <tr>
+                    <td><strong>Status Report 2</strong></td>
+                    <td>02/12/2025</td>
+                    <td>02/12/2025</td>
+                    <td><span class="status-badge status-done">✓ Concluído</span></td>
+                    <td>0 dias</td>
+                </tr>
+                <tr style="background: #e2e8f0;">
+                    <td><strong>Apresentação Final</strong></td>
+                    <td>11/12/2025</td>
+                    <td>Pendente</td>
+                    <td><span class="status-badge status-pending">⏳ Planejado</span></td>
+                    <td>9 dias</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Progresso das Entregas Principais</h2>
+
+        <div class="three-col">
+            <div class="metric-box" style="background: linear-gradient(135deg, #38a169 0%, #48bb78 100%);">
+                <div class="number">100%</div>
+                <div class="label">Marcos Obrigatórios<br>Concluídos</div>
+            </div>
+            <div class="metric-box" style="background: linear-gradient(135deg, #3182ce 0%, #4299e1 100%);">
+                <div class="number">93%</div>
+                <div class="label">Artefatos Totais<br>do Projeto</div>
+            </div>
+            <div class="metric-box" style="background: linear-gradient(135deg, #d69e2e 0%, #ecc94b 100%);">
+                <div class="number">9 dias</div>
+                <div class="label">Para Apresentação<br>Final (11/12)</div>
+            </div>
+        </div>
+
+        <div class="highlight" style="margin-top: 30px;">
+            <p><strong>📊 Conclusão:</strong> Projeto está <strong>DENTRO DO PRAZO</strong> com desempenho <strong>ACIMA DAS EXPECTATIVAS</strong> (+3% sobre o planejado). Zero atrasos em marcos obrigatórios demonstram disciplina e comprometimento da equipe.</p>
+        </div>
+
+        <div class="slide-number">07</div>
+    </div>
+
+    <!-- SLIDE 8: O QUE DEU CERTO X O QUE PRECISA MELHORAR -->
+    <div class="slide">
+        <span class="tag">Lições Aprendidas</span>
+        <h1>O QUE DEU CERTO X O QUE PRECISA MELHORAR</h1>
+
+        <div class="two-col">
+            <div style="background: linear-gradient(135deg, #f0fdf4 0%, #c6f6d5 100%); border: 3px solid #38a169; border-radius: 12px; padding: 30px;">
+                <h2 style="color: #22543d; margin-top: 0;">✅ O QUE DEU CERTO</h2>
+                
+                <h3 style="font-size: 1.2em; color: #276749; margin-top: 25px;">1. Análise de Processos Robusta</h3>
+                <p style="font-size: 0.9em; color: #22543d;">122 problemas identificados sistematicamente usando metodologias reconhecidas (GUT, Ishikawa), gerando fundamentação técnica sólida.</p>
+
+                <h3 style="font-size: 1.2em; color: #276749;">2. Validação com Stakeholders</h3>
+                <p style="font-size: 0.9em; color: #22543d;">Reuniões quinzenais mantidas sem cancelamentos, resultando em aprovação formal de todas as entregas críticas.</p>
+
+                <h3 style="font-size: 1.2em; color: #276749;">3. Prototipação de Alta Qualidade</h3>
+                <p style="font-size: 0.9em; color: #22543d;">Protótipos mobile e web com design system consistente em 100% das telas, demonstrando viabilidade da solução.</p>
+
+                <h3 style="font-size: 1.2em; color: #276749;">4. Documentação Completa</h3>
+                <p style="font-size: 0.9em; color: #22543d;">Especificação funcional com regras de negócio, análise de 17 soluções com indicadores mensuráveis.</p>
+
+                <h3 style="font-size: 1.2em; color: #276749;">5. Gestão de Cronograma</h3>
+                <p style="font-size: 0.9em; color: #22543d;">100% dos marcos obrigatórios cumpridos sem atrasos, demonstrando disciplina da equipe.</p>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #fffaf0 0%, #feebc8 100%); border: 3px solid #d69e2e; border-radius: 12px; padding: 30px;">
+                <h2 style="color: #975a16; margin-top: 0;">⚠️ O QUE PRECISA MELHORAR</h2>
+                
+                <h3 style="font-size: 1.2em; color: #975a16; margin-top: 25px;">1. Gestão do Tempo (Reta Final)</h3>
+                <p style="font-size: 0.9em; color: #744210;">Apenas 9 dias até apresentação final. Priorização máxima necessária.</p>
+                <p style="font-size: 0.85em; color: #975a16;"><strong>Ação:</strong> Cronograma dia a dia, critérios de "bom o suficiente".</p>
+
+                <h3 style="font-size: 1.2em; color: #975a16;">2. Organização do Notion</h3>
+                <p style="font-size: 0.9em; color: #744210;">Estrutura de navegação precisa reorganização para acesso rápido.</p>
+                <p style="font-size: 0.85em; color: #975a16;"><strong>Ação:</strong> Reestruturação completa até 04/12 com índice navegável.</p>
+
+                <h3 style="font-size: 1.2em; color: #975a16;">3. Sincronização da Equipe</h3>
+                <p style="font-size: 0.9em; color: #744210;">Fase final exige alta coordenação entre 7 membros.</p>
+                <p style="font-size: 0.85em; color: #975a16;"><strong>Ação:</strong> Dailies implementados a partir de 02/12, responsabilidades claras.</p>
+
+                <h3 style="font-size: 1.2em; color: #975a16;">4. Consolidação de Artefatos</h3>
+                <p style="font-size: 0.9em; color: #744210;">Grande volume técnico requer síntese clara para apresentação.</p>
+                <p style="font-size: 0.85em; color: #975a16;"><strong>Ação:</strong> Narrativa executiva definida até 04/12: Problema → Pesquisa → Análise → Solução → Validação → Impacto.</p>
+            </div>
+        </div>
+
+        <div class="highlight" style="margin-top: 30px;">
+            <p style="text-align: center; font-size: 1.1em;"><strong>💡 Aprendizado Principal:</strong> O projeto demonstrou excelente capacidade de <strong>planejamento e execução disciplinada</strong>, com todos os marcos cumpridos. O desafio agora é <strong>consolidar e comunicar</strong> todo o trabalho realizado de forma clara e impactante nos 9 dias restantes.</p>
+        </div>
+
+        <div class="slide-number">08</div>
+    </div>
+
+    <!-- SLIDE 9: PLANOS DE TRABALHO E PROGRESSO -->
+    <div class="slide">
+        <span class="tag">Planos de Trabalho</span>
+        <h1>PLANOS DE TRABALHO: PROGRESSO E MODIFICAÇÕES</h1>
+
+        <h2>Tarefas do Projeto - Status Detalhado</h2>
+
+        <table style="font-size: 0.8em;">
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Tarefa</th>
+                    <th>% Concluída</th>
+                    <th>Data Conclusão</th>
+                    <th>Responsável</th>
+                    <th>Observações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>EAP</strong></td>
+                    <td><span class="status-badge status-done">100%</span></td>
+                    <td>06/10/2025</td>
+                    <td>Guilherme e Luca</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td><strong>Declaração de Escopo</strong></td>
+                    <td><span class="status-badge status-done">100%</span></td>
+                    <td>06/10/2025</td>
+                    <td>Luca e Ana</td>
+                    <td>Acompanhar andamento</td>
+                </tr>
+                <tr>
+                    <td><strong>Plano de RH (equipe)</strong></td>
+                    <td><span class="status-badge status-done">100%</span></td>
+                    <td>06/10/2025</td>
+                    <td>Guilherme</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td><strong>Plano de RH (stakeholders)</strong></td>
+                    <td><span class="status-badge status-done">100%</span></td>
+                    <td>06/10/2025</td>
+                    <td>Guilherme</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td><strong>Plano de Comunicação</strong></td>
+                    <td><span class="status-badge status-done">100%</span></td>
+                    <td>06/10/2025</td>
+                    <td>Guilherme</td>
+                    <td>Acompanhar efetividade</td>
+                </tr>
+                <tr>
+                    <td><strong>Cronograma e Plano de Tempo</strong></td>
+                    <td><span class="status-badge status-done">100%</span></td>
+                    <td>06/10/2025</td>
+                    <td>Guilherme</td>
+                    <td>Baseline 1.1 (24/10)</td>
+                </tr>
+                <tr>
+                    <td><strong>Orçamento e Plano de Custos</strong></td>
+                    <td><span class="status-badge status-done">100%</span></td>
+                    <td>06/10/2025</td>
+                    <td>Guilherme</td>
+                    <td>Sem gasto real</td>
+                </tr>
+                <tr>
+                    <td><strong>Lista de Riscos e Plano de Gestão</strong></td>
+                    <td><span class="status-badge status-done">100%</span></td>
+                    <td>06/10/2025</td>
+                    <td>Guilherme, Luca, Ana</td>
+                    <td>Atualização contínua</td>
+                </tr>
+                <tr>
+                    <td><strong>Status Report 1</strong></td>
+                    <td><span class="status-badge status-done">100%</span></td>
+                    <td>04/11/2025</td>
+                    <td>Guilherme</td>
+                    <td>-</td>
+                </tr>
+                <tr style="background: #f0fdf4;">
+                    <td><strong>Mapeamento de Problemas</strong></td>
+                    <td><span class="status-badge status-done">100%</span></td>
+                    <td>20/11/2025</td>
+                    <td>Ana e Guilherme</td>
+                    <td><strong>122 problemas</strong></td>
+                </tr>
+                <tr style="background: #f0fdf4;">
+                    <td><strong>Análise Completa P×C×S</strong></td>
+                    <td><span class="status-badge status-done">100%</span></td>
+                    <td>25/11/2025</td>
+                    <td>Luca e Ana</td>
+                    <td><strong>17 soluções</strong></td>
+                </tr>
+                <tr style="background: #f0fdf4;">
+                    <td><strong>Plano Análise de Processos</strong></td>
+                    <td><span class="status-badge status-done">100%</span></td>
+                    <td>25/11/2025</td>
+                    <td>Ana e Guilherme</td>
+                    <td>Validado cliente</td>
+                </tr>
+                <tr style="background: #f0fdf4;">
+                    <td><strong>Especificação Funcional</strong></td>
+                    <td><span class="status-badge status-done">100%</span></td>
+                    <td>28/11/2025</td>
+                    <td>Luca e Ana</td>
+                    <td>Completa</td>
+                </tr>
+                <tr style="background: #fef5e7;">
+                    <td><strong>Protótipos Alta Fidelidade</strong></td>
+                    <td><span class="status-badge status-progress">80%</span></td>
+                    <td>05/12/2025</td>
+                    <td>Mario, Julio, Sandriames, Lucas</td>
+                    <td>Finalização</td>
+                </tr>
+                <tr style="background: #fef5e7;">
+                    <td><strong>Consolidação de Artefatos</strong></td>
+                    <td><span class="status-badge status-progress">50%</span></td>
+                    <td>08/12/2025</td>
+                    <td>Guilherme e Luca</td>
+                    <td>Para entrega</td>
+                </tr>
+                <tr style="background: #e2e8f0;">
+                    <td><strong>Apresentação Final</strong></td>
+                    <td><span class="status-badge status-progress">40%</span></td>
+                    <td>11/12/2025</td>
+                    <td>Equipe completa</td>
+                    <td>Preparação</td>
+                </tr>
+                <tr>
+                    <td><strong>Status Report 2</strong></td>
+                    <td><span class="status-badge status-done">100%</span></td>
+                    <td>02/12/2025</td>
+                    <td>Guilherme</td>
+                    <td>-</td>
+                </tr>
+                <tr style="background: #f0fdf4;">
+                    <td><strong>Artefatos Totais do Projeto</strong></td>
+                    <td><span class="status-badge status-done">93%</span></td>
+                    <td>11/12/2025</td>
+                    <td>Equipe</td>
+                    <td><strong>70% → 93%</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Modificações nos Planos Desde SR1</h2>
+
+        <div class="two-col">
+            <div class="box" style="background: #f0fff4; border: 3px solid #38a169;">
+                <h3>✅ Inclusões Bem-Sucedidas</h3>
+                <ul style="font-size: 0.9em;">
+                    <li><strong>Mapeamento de 122 problemas:</strong> Adicionado após SR1, fundamentou tecnicamente todas as decisões</li>
+                    <li><strong>Análise P×C×S completa:</strong> 17 soluções com indicadores mensuráveis, superou escopo inicial</li>
+                    <li><strong>Especificação funcional:</strong> Detalhamento de regras de negócio e integrações</li>
+                    <li><strong>Dailies na reta final:</strong> Implementados em 02/12 para alta coordenação</li>
+                </ul>
+            </div>
+
+            <div class="box" style="background: #fffaf0; border: 3px solid #d69e2e;">
+                <h3>⚠️ Ajustes de Cronograma</h3>
+                <ul style="font-size: 0.9em;">
+                    <li><strong>Protótipos:</strong> Iniciados antes do planejado (ganho de tempo)</li>
+                    <li><strong>Consolidação:</strong> Priorizada para 04-08/12 (crítico para entrega)</li>
+                    <li><strong>Apresentação final:</strong> Preparação antecipada desde 02/12</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="highlight" style="margin-top: 30px;">
+            <p><strong>📊 Progresso Acumulado:</strong> De 70% (SR1 em 04/11) para <strong>93% (SR2 em 02/12)</strong>, representando avanço de <strong>23 pontos percentuais</strong> em 4 semanas, demonstrando aceleração consistente na reta final do projeto.</p>
+        </div>
+
+        <div class="slide-number">09</div>
+    </div>
+
+    <!-- SLIDE 10: NOVOS ARTEFATOS CRIADOS -->
+    <div class="slide">
+        <span class="tag">Novos Artefatos</span>
+        <h1>NOVOS ARTEFATOS CRIADOS PARA ESTA ENTREGA</h1>
+
+        <h2>Artefatos Produzidos Desde Status Report 1 (04/11 → 02/12)</h2>
+
+        <div class="three-col">
+            <div class="box" style="background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%); border: 3px solid #c53030;">
+                <h3>📊 Análises de Processos</h3>
+                <ul style="font-size: 0.85em;">
+                    <li><strong>Mapeamento de Problemas por Macroprocesso</strong> - 122 problemas identificados em 6 dimensões</li>
+                    <li><strong>Análise Completa P×C×S×B</strong> - Problemas × Causas × Soluções × Benefícios com Matriz GUT</li>
+                    <li><strong>Plano de Análise de Processos</strong> - Metodologia BPM aplicada</li>
+                    <li><strong>Diagrama de Ishikawa (6M)</strong> - Análise de causas raiz para 3 problemas principais</li>
+                </ul>
+            </div>
+
+            <div class="box" style="background: linear-gradient(135deg, #fffaf0 0%, #feebc8 100%); border: 3px solid #ed8936;">
+                <h3>🎨 Design e Prototipação</h3>
+                <ul style="font-size: 0.85em;">
+                    <li><strong>Protótipos de Alta Fidelidade Mobile</strong> - Fluxos principais dos 3 macroprocessos</li>
+                    <li><strong>Protótipos de Alta Fidelidade Web</strong> - Painel SECULT e gestão de programas</li>
+                    <li><strong>Design System Completo</strong> - Componentes reutilizáveis, paleta de cores, tipografia</li>
+                    <li><strong>Wireframes Detalhados</strong> - ~40-50 telas com anotações funcionais</li>
+                </ul>
+            </div>
+
+            <div class="box" style="background: linear-gradient(135deg, #f0fdf4 0%, #c6f6d5 100%); border: 3px solid #38a169;">
+                <h3>✅ Validação</h3>
+                <ul style="font-size: 0.85em;">
+                    <li><strong>Personas Refinadas</strong> - 5 personas validadas com dados reais</li>
+                    <li><strong>User Flows Validados</strong> - 17 fluxos ajustados após validações</li>
+                    <li><strong>Documentação de Requisitos</strong> - Especificação funcional completa</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="three-col">
+            <div class="box" style="background: linear-gradient(135deg, #ebf8ff 0%, #bee3f8 100%); border: 3px solid #3182ce;">
+                <h3>📝 Especificações Técnicas</h3>
+                <ul style="font-size: 0.85em;">
+                    <li><strong>Especificação Funcional Completa</strong> - Regras de negócio, validações, integrações</li>
+                    <li><strong>Documentação de 17 Soluções</strong> - Detalhamento com indicadores de sucesso por stakeholder</li>
+                    <li><strong>Matriz MoSCoW Atualizada</strong> - Priorização de todas as features</li>
+                    <li><strong>Requisitos de Integração</strong> - Conecta Recife, APIs municipais</li>
+                </ul>
+            </div>
+
+            <div class="box" style="background: linear-gradient(135deg, #faf5ff 0%, #e9d8fd 100%); border: 3px solid #805ad5;">
+                <h3>📊 Gestão de Projeto</h3>
+                <ul style="font-size: 0.85em;">
+                    <li><strong>Status Report 2</strong> - Relatório executivo completo</li>
+                    <li><strong>Cronograma Atualizado</strong> - Baseline ajustado, SPI/SV calculados</li>
+                    <li><strong>Matriz de Riscos Refinada</strong> - Novos riscos identificados e mitigados</li>
+                    <li><strong>Plano de Consolidação</strong> - Reta final 02/12 → 11/12</li>
+                </ul>
+            </div>
+
+            <div class="box" style="background: linear-gradient(135deg, #fffaf0 0%, #fef5e7 100%); border: 3px solid #d69e2e;">
+                <h3>🎯 Documentação Acadêmica</h3>
+                <ul style="font-size: 0.85em;">
+                    <li><strong>Atas de Validações</strong> - Reuniões 07/10 e 24/10 documentadas</li>
+                    <li><strong>Relatórios Semanais</strong> - Progresso documentado desde SR1</li>
+                    <li><strong>Base de Conhecimento Organizada</strong> - Notion reestruturado com índice</li>
+                    <li><strong>Preparação Apresentação Final</strong> - Narrativa executiva estruturada</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Estatísticas de Produção (04/11 → 02/12)</h2>
+
+        <div class="three-col">
+            <div class="metric-box" style="background: linear-gradient(135deg, #c53030 0%, #ed8936 100%);">
+                <div class="number">122</div>
+                <div class="label">Problemas<br>Mapeados</div>
+            </div>
+            <div class="metric-box" style="background: linear-gradient(135deg, #dd6b20 0%, #f6ad55 100%);">
+                <div class="number">17</div>
+                <div class="label">Soluções<br>Detalhadas</div>
+            </div>
+            <div class="metric-box" style="background: linear-gradient(135deg, #38a169 0%, #48bb78 100%);">
+                <div class="number">~50</div>
+                <div class="label">Telas<br>Prototipadas</div>
+            </div>
+        </div>
+
+        <div class="highlight" style="margin-top: 30px;">
+            <p style="text-align: center; font-size: 1.1em;"><strong>📈 Volume de Trabalho:</strong> Período entre SR1 e SR2 foi o mais produtivo do projeto, com produção massiva de artefatos técnicos de alta qualidade que fundamentam a solução proposta e demonstram rigor metodológico acadêmico.</p>
+        </div>
+
+        <div class="slide-number">10</div>
+    </div>
+
+    <!-- SLIDE 11: PRÓXIMOS PASSOS E RECOMENDAÇÕES -->
+    <div class="slide">
+        <span class="tag">Próximos Passos</span>
+        <h1>RECOMENDAÇÕES E PRÓXIMOS PASSOS</h1>
+
+        <h2>Cronograma Crítico: 02/12 → 11/12 (9 dias)</h2>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">02-04/12</div>
+                <div class="timeline-content">
+                    <h4>Consolidação Narrativa Executiva</h4>
+                    <ul style="font-size: 0.85em;">
+                        <li>Estrutura: Problema → Pesquisa → Análise → Solução → Validação → Impacto</li>
+                        <li>Usar dados concretos GUT/Ishikawa para rigor metodológico</li>
+                        <li>Destacar diferenciais: ZEIS/CIS, dados SECULT, programas estruturados</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">05-06/12</div>
+                <div class="timeline-content">
+                    <h4>Finalização de Protótipos e Documentação</h4>
+                    <ul style="font-size: 0.85em;">
+                        <li>Completar 20% restantes dos protótipos</li>
+                        <li>Reestruturar Notion com índice navegável</li>
+                        <li>Solicitar revisão do Prof. Alexandre Vasconcelos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">06-09/12</div>
+                <div class="timeline-content">
+                    <h4>Preparação Apresentação Final</h4>
+                    <ul style="font-size: 0.85em;">
+                        <li>Criar apresentação executiva (slides + demo)</li>
+                        <li>Ensaios com cronometragem (máx. 2h)</li>
+                        <li>Preparar material de apoio e handoff</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">09-11/12</div>
+                <div class="timeline-content">
+                    <h4>Ajustes Finais e Buffer</h4>
+                    <ul style="font-size: 0.85em;">
+                        <li>Incorporar feedbacks da revisão acadêmica</li>
+                        <li>Última rodada de validações internas</li>
+                        <li>Buffer para imprevistos de última hora</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h2>Recomendações Estratégicas</h2>
+
+        <div class="three-col">
+            <div class="box" style="border: 3px solid #c53030;">
+                <h3>🔴 CRÍTICAS (Ação Imediata)</h3>
+                <ul style="font-size: 0.85em;">
+                    <li>Dedicar 70% do tempo à preparação da apresentação final</li>
+                    <li>Estabelecer critérios de "bom o suficiente" para evitar perfeccionismo</li>
+                    <li>Manter dailies diários até 11/12 para alta coordenação</li>
+                </ul>
+            </div>
+
+            <div class="box" style="border: 3px solid #ed8936;">
+                <h3>🟠 IMPORTANTES (Próximos 3 dias)</h3>
+                <ul style="font-size: 0.85em;">
+                    <li>Preparar handoff com índice navegável e guia de leitura</li>
+                    <li>Validar alinhamento acadêmico com orientador</li>
+                    <li>Consolidar dados concretos para demonstração de rigor</li>
+                </ul>
+            </div>
+
+            <div class="box" style="border: 3px solid #f6ad55;">
+                <h3>🟡 DESEJÁVEIS (Se houver tempo)</h3>
+                <ul style="font-size: 0.85em;">
+                    <li>Criar vídeo demo de 2-3 minutos dos protótipos</li>
+                    <li>Preparar infográfico executivo de 1 página</li>
+                    <li>Documentar lições aprendidas para futuros projetos</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="highlight" style="margin-top: 30px;">
+            <p style="text-align: center; font-size: 1.1em;"><strong>🎯 Foco Final:</strong> Comunicar com clareza e impacto o valor da solução proposta, demonstrando rigor metodológico, profundidade técnica e potencial transformador para a cena musical de Recife.</p>
+        </div>
+
+        <div class="slide-number">11</div>
+    </div>
+
+    <!-- SLIDE 12: ENCERRAMENTO -->
+    <div class="slide slide-1">
+        <h1>RUMO À APRESENTAÇÃO FINAL!</h1>
+        
+        <div style="margin-top: 60px;">
+            <p style="font-size: 2em; font-weight: 300; margin-bottom: 40px;">Obrigado pela atenção! 🎵</p>
+            <p style="font-size: 1.5em; font-weight: 600; margin-bottom: 20px;">9 dias para a entrega final</p>
+            <p style="font-size: 1.3em; opacity: 0.9;">11 de Dezembro de 2025</p>
+        </div>
+
+        <div style="margin-top: 100px; padding-top: 50px; border-top: 2px solid rgba(255,255,255,0.3);">
+            <p style="font-size: 1.8em; font-style: italic; margin-bottom: 15px; line-height: 1.4;">"Computadores fazem arte,<br>artistas fazem dinheiro"</p>
+            <p style="font-size: 1.2em; opacity: 0.9; margin-bottom: 50px;">— Chico Science</p>
+            
+            <p style="font-size: 1.3em; font-weight: 600; margin-top: 50px;">Equipe UFPE - Computadores Fazem Arte</p>
+            <p style="font-size: 1.1em; margin-top: 15px; opacity: 0.9;">Guilherme Vinícius, Luca Neves, Ana Beatriz,<br>Mario Motta, Julio Cesar, Sandriames Fausto, Lucas</p>
+        </div>
+    </div>
+
+</body>
+</html>
